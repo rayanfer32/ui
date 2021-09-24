@@ -69,6 +69,7 @@
 
     document.querySelector("#inputForm").addEventListener("submit", e => {
         e.preventDefault();
+        // console.log(e)
         calculateTripCost(e.target)
     })
 
@@ -90,6 +91,9 @@
         }
 
     }
+
+    const calculateBtnElm = document.querySelector("#calculate")
+    let interval1 = setInterval(() => calculateBtnElm.click(),500)
 </script>
 
 </html>
