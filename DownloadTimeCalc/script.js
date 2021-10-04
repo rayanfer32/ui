@@ -2,6 +2,7 @@ const speedElm = document.querySelector("#speed");
 const filesizeElm = document.querySelector("#filesize");
 const calculateBtnElm = document.querySelector("#calculateBtn");
 const resultElm = document.querySelector("#result");
+const speedBtnsElm = document.querySelector("#speed-btns")
 
 String.prototype.toHHMMSS = function () {
     var sec_num = parseInt(this, 10); // don't forget the second param
@@ -19,6 +20,13 @@ function calculateTime(){
     let res = filesizeElm.value*1024 / (speedElm.value/8);
     resultElm.innerText = res.toString().toHHMMSS()
 }
+
+speedBtnsElm.addEventListener("click", e => {
+    speedElm.value = e.target.value;
+    calculateTime()
+})
+
+
 
 //attach event listners for changes in the input and autocalculate the result
 speedElm.addEventListener("input", calculateTime)
